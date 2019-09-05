@@ -6,6 +6,10 @@ import io.vertx.core.json.*
 import io.vertx.ext.web.*
 import io.vertx.ext.web.handler.BodyHandler
 import java.util.stream.Collectors
+import io.vertx.core.AbstractVerticle
+import io.vertx.core.Promise
+import io.vertx.ext.web.Router
+import io.vertx.ext.web.handler.StaticHandler
 
 class MainVerticle : AbstractVerticle() {
 
@@ -13,27 +17,30 @@ class MainVerticle : AbstractVerticle() {
     val mongoConnector = MongoConnector(vertx);
     val router = Router.router(vertx)
 
-    router.get("/").handler { routingContext ->
+    router.get("/advertisements").handler { routingContext ->
       val adId = routingContext.queryParams().get("id")
       when {
           adId != null -> mongoConnector.get(adId, getOneCallback(routingContext))
           else -> mongoConnector.getAll(getAllCallback(routingContext))
       }
     }
-    router.post("/").handler(BodyHandler.create()).handler { routingContext ->
+    router.post("/advertisements").handler(BodyHandler.create()).handler { routingContext ->
       val advertisement = jsonObjectToAdvertisement(routingContext.bodyAsJson)
       mongoConnector.save(advertisement, saveCallback(routingContext));
     }
 
+
+    router.route().handler(StaticHandler.create())
+
     vertx
       .createHttpServer()
-      .requestHandler(router)
+      .requestHandler(router::accept)
       .listen(8888) { http ->
         if (http.succeeded()) {
           startPromise.complete()
           println("HTTP server started on port 8888")
         } else {
-          startPromise.fail(http.cause());
+          startPromise.fail(http.cause())
         }
       }
   }

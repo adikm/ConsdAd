@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CorkData</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: auto;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .corkdata-logo {
+      height: 42vmin;
+      width: 90vmin;
+      min-height: 7rem;
+      min-width: 15rem;
+    }
+
+    .slack-sign-in-button-image {
+      height: 2.5rem;
+      width: 10rem;
+    }
+  </style>
+</head>
+<body>
+<main class="corkdata-main">
+  <img class="corkdata-logo" src="logo_transparent.png" alt="CorkData logo">
+
+  <a
+    href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=61119992082.752038500087&redirect_uri=http%3A%2F%2Flocalhost%3A8888%2F">
+    <img class="slack-sign-in-button-image" alt="Sign in with Slack"
+         src="https://platform.slack-edge.com/img/sign_in_with_slack.png"
+         srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x"/>
+  </a>
+</main>
+</body>
+</html>
