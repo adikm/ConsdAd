@@ -4,6 +4,6 @@ class Advertisement(val id: String,
                     val title: String,
                     val user: String,
                     val content: String,
-                    val tags: Array<String>) {
+                    val tags: List<String>) {
 
 }
