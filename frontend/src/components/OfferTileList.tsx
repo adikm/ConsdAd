@@ -12,7 +12,7 @@ const mockOffers: AdvertisementList = {
   },
     {
       title: 'test2',
-      content: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ',
+      content: '',
       user: {},
       id: 1,
       tags: ['ogloszenie']
@@ -27,6 +27,13 @@ const mockOffers: AdvertisementList = {
     {
       title: 'test3',
       content: 'content testowy3',
+      user: {},
+      id: 1,
+      tags: ['ogloszenie']
+    },
+    {
+      title: 'test4',
+      content: 'content testowy4',
       user: {},
       id: 1,
       tags: ['ogloszenie']
