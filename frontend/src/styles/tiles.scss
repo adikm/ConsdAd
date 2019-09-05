@@ -1,0 +1,17 @@
+.offer-list {
+  display: flex;
+  justify-content: space-around;
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+}
+
+.offer-tile {
+  h5 {
+    color: #790000;
+    text-transform: uppercase;
+    font-size: 1.1em;
+  }
+  max-width: 300px;
+  width: 300px;
+}
+

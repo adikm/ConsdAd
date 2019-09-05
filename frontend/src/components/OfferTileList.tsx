@@ -9,15 +9,36 @@ const mockOffers: AdvertisementList = {
     user: {},
     id: 1,
     tags: ['ogloszenie']
-  }]
+  },
+    {
+      title: 'test2',
+      content: 'content testowy2',
+      user: {},
+      id: 1,
+      tags: ['ogloszenie']
+    },
+    {
+      title: 'test3',
+      content: 'content testowy3',
+      user: {},
+      id: 1,
+      tags: ['ogloszenie']
+    },
+    {
+      title: 'test3',
+      content: 'content testowy3',
+      user: {},
+      id: 1,
+      tags: ['ogloszenie']
+    }]
 };
 
 export const OfferTileList: React.FC = () => {
   return (
-    <>
+    <div className='offer-list'>
       {mockOffers.advertisements.map((ad, index) => {
         return (<OfferTileComponent {...ad} key={index}> </OfferTileComponent>)
       })}
-    </>
+    </div>
   )
 };

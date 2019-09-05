@@ -20,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "styles:run": "npm run styles:compile && npm run styles:compile -- -w",
-    "styles:compile": "node-sass styles/main.scss public/main.min.css --output-style compressed"
+    "styles:compile": "node-sass src/styles/main.scss public/main.min.css --output-style compressed"
   },
   "eslintConfig": {
     "extends": "react-app"
