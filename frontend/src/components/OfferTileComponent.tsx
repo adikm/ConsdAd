@@ -6,10 +6,21 @@ export class OfferTileComponent extends React.Component<AdvertisementModel> {
   public render(): ReactNode {
     return (
       <Card interactive={true} elevation={Elevation.TWO} className='offer-tile'>
-        <h5>{this.props.title}</h5>
-        <p>{this.props.content}</p>
-        <Button>Pokaż</Button>
+        <div>
+          <h5>{this.props.title}</h5>
+          <hr/>
+          <p>{this.trimContentToMaxLength()}</p>
+        </div>
+        <a>Pokaż więcej</a>
       </Card>
     );
+  }
+
+  trimContentToMaxLength(): string {
+    if (this.props.content.length >= 200) {
+      return this.props.content.slice(0, 196) + '...';
+    } else {
+      return this.props.content;
+    }
   }
 }
