@@ -1,7 +1,6 @@
 package net.flamingos.consdad
 
-import io.vertx.core.AbstractVerticle
-import io.vertx.core.Promise
+import io.vertx.core.*
 
 class MainVerticle : AbstractVerticle() {
 
