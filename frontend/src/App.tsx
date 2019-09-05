@@ -3,14 +3,11 @@ import React from 'react';
 import '@blueprintjs/core/lib/css/blueprint.css';
 import '@blueprintjs/icons/lib/css/blueprint-icons.css';
 import './App.css';
+import {OfferTileList} from './components/OfferTileList';
 
 const App: React.FC = () => {
   return (
-    <Card interactive={true} elevation={Elevation.TWO}>
-      <h5><a href="#">Card heading</a></h5>
-      <p>Card content</p>
-      <Button>Submit</Button>
-    </Card>
+    <OfferTileList/>
   );
 };
 
