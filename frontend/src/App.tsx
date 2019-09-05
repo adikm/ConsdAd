@@ -1,26 +1,15 @@
+import {Button, Card, Elevation} from '@blueprintjs/core';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Card interactive={true} elevation={Elevation.TWO}>
+      <h5><a href="#">Card heading</a></h5>
+      <p>Card content</p>
+      <Button>Submit</Button>
+    </Card>
   );
-}
+};
 
 export default App;
