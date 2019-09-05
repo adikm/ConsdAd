@@ -16,7 +16,7 @@ export const OfferTileList: React.FC = () => {
   return (
     <>
       {mockOffers.advertisements.map((ad, index) => {
-        <OfferTileComponent ad={ad} key={index}> </OfferTileComponent>
+        return (<OfferTileComponent {...ad} key={index}> </OfferTileComponent>)
       })}
     </>
   )
