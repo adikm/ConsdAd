@@ -1,9 +1,8 @@
-import {Button, Card, Elevation} from '@blueprintjs/core';
-import React, {ReactNode} from 'react';
-import {AdvertisementModel} from '../models/AdvertisementModel';
+import {Card, Elevation} from '@blueprintjs/core';
+import React from 'react';
 
-export class OfferTileComponent extends React.Component<AdvertisementModel> {
-  public render(): ReactNode {
+export class OfferTileComponent extends React.Component {
+  render() {
     return (
       <Card interactive={true} elevation={Elevation.TWO} className='offer-tile'>
         <div>
@@ -16,7 +15,7 @@ export class OfferTileComponent extends React.Component<AdvertisementModel> {
     );
   }
 
-  trimContentToMaxLength(): string {
+  trimContentToMaxLength() {
     if (this.props.content.length >= 200) {
       return this.props.content.slice(0, 196) + '...';
     } else {

@@ -9,7 +9,10 @@ import java.util.stream.Collectors
 import io.vertx.core.AbstractVerticle
 import io.vertx.core.Promise
 import io.vertx.ext.web.Router
+import io.vertx.ext.web.handler.CorsHandler
 import io.vertx.ext.web.handler.StaticHandler
+import java.util.HashSet
+
 
 class MainVerticle : AbstractVerticle() {
 
@@ -17,20 +20,25 @@ class MainVerticle : AbstractVerticle() {
     val mongoConnector = MongoConnector(vertx);
     val router = Router.router(vertx)
 
-    router.get("/advertisements").handler { routingContext ->
-      val adId = routingContext.queryParams().get("id")
-      when {
+    router.route().handler(CorsHandler.create("*")
+      .allowedMethod(HttpMethod.GET)
+      .allowedMethod(HttpMethod.POST)
+      .allowedMethod(HttpMethod.PUT)
+      .allowedHeader("Content-Type"));
+
+    router.get("/advertisements")
+      .handler { routingContext ->
+        val adId = routingContext.queryParams().get("id")
+        when {
           adId != null -> mongoConnector.get(adId, getOneCallback(routingContext))
           else -> mongoConnector.getAll(getAllCallback(routingContext))
+        }
       }
-    }
+
     router.post("/advertisements").handler(BodyHandler.create()).handler { routingContext ->
       val advertisement = jsonObjectToAdvertisement(routingContext.bodyAsJson)
       mongoConnector.save(advertisement, saveCallback(routingContext));
     }
-
-
-    router.route().handler(StaticHandler.create())
 
     vertx
       .createHttpServer()
